@@ -7,35 +7,28 @@
     height: 270
   };
 
-  let isInitialised;
   let gui;
 
-  initialised.subscribe(value => {
-    isInitialised = value;
-  });
-
   onMount(async () => {
-    if (!isInitialised) {
-      initialised.set(true);
+    const dat = await import("dat.gui");
 
-      const dat = await import("dat.gui");
+    gui = new dat.GUI({ autoPlace: false });
 
-      gui = new dat.GUI({ autoPlace: false });
+    var GUIContainer = document.getElementById("controls-container");
+    GUIContainer.appendChild(gui.domElement);
 
-      var GUIContainer = document.getElementById("controls-container");
-      GUIContainer.appendChild(gui.domElement);
-
-      gui.add(config, "width").onChange(value => {
-        console.log(value);
-      });
-      gui.add(config, "height").onChange(value => {
-        console.log(value);
-      });
-    }
+    gui.add(config, "width").onChange(value => {
+      console.log(value);
+    });
+    gui.add(config, "height").onChange(value => {
+      console.log(value);
+    });
   });
 
   onDestroy(async () => {
-    gui.destroy();
+    if (gui) {
+      gui.destroy();
+    }
   });
 </script>
 
@@ -51,10 +44,6 @@
   }
 
   .svg-container {
-    /* width: 100%;
-    height: 100%; */
-    /* margin: 2em; */
-    /* font-size: 0; */
     background-color: darkslategrey;
     display: flex;
     justify-content: center;
@@ -68,13 +57,6 @@
     width: calc(((210 / 297) * 100vh) - (57px + 32px));
     height: calc(100vh - (57px + 32px));
   }
-
-  /* main {
-    position: relative;
-    max-width: 56em;
-    margin: 0 auto;
-    box-sizing: border-box;
-  } */
 
   #controls-container {
     width: 245px;
