@@ -29,12 +29,7 @@
     // initialize SVG.js
     var draw = SVG("svg16");
 
-    // draw pink square
-    // draw
-    //   .rect(200, 287)
     generate(draw, 200, 287).move(5, 5);
-    // .fill("transparent")
-    // .stroke("#f06"); // initialize SVG.js
   });
 
   onDestroy(async () => {
