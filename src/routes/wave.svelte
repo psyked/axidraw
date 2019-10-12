@@ -1,6 +1,7 @@
 <script>
   import { onMount, onDestroy } from "svelte";
   import { initialised } from "../stores";
+  import * as SVG from "svg.js";
 
   const config = {
     width: 210,
@@ -11,6 +12,9 @@
 
   onMount(async () => {
     const dat = await import("dat.gui");
+    // const SVG = await import("svg.js");
+
+    console.log(SVG);
 
     gui = new dat.GUI({ autoPlace: false });
 
@@ -23,6 +27,16 @@
     gui.add(config, "height").onChange(value => {
       console.log(value);
     });
+
+    // initialize SVG.js
+    var draw = SVG("svg16");
+
+    // draw pink square
+    draw
+      .rect(200, 287)
+      .move(5, 5)
+      .fill("transparent")
+      .stroke("#f06"); // initialize SVG.js
   });
 
   onDestroy(async () => {

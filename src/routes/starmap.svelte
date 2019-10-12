@@ -44,7 +44,7 @@
     background: white;
   }
 
-  main {
+  /* main {
     position: relative;
     max-width: 56em;
     background-color: darkslategrey;
@@ -53,7 +53,7 @@
     box-sizing: border-box;
     width: 100vw;
     height: calc(100vh - 57px);
-  }
+  } */
 </style>
 
 <svelte:head>
