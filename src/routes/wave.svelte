@@ -12,6 +12,7 @@
   let gui;
 
   onMount(async () => {
+    const draw = SVG("svg16");
     const dat = await import("dat.gui");
 
     gui = new dat.GUI({ autoPlace: false });
@@ -19,15 +20,23 @@
     var GUIContainer = document.getElementById("controls-container");
     GUIContainer.appendChild(gui.domElement);
 
-    gui.add(config, "width").onChange(value => {
-      console.log(value);
-    });
-    gui.add(config, "height").onChange(value => {
-      console.log(value);
-    });
+    var obj = {
+      generate: function() {
+        // console.log("clicked");
+        generate(draw, 200, 287).move(5, 5);
+      }
+    };
+
+    gui.add(obj, "generate");
+
+    // gui.add(config, "width").onChange(value => {
+    //   console.log(value);
+    // });
+    // gui.add(config, "height").onChange(value => {
+    //   console.log(value);
+    // });
 
     // initialize SVG.js
-    var draw = SVG("svg16");
 
     generate(draw, 200, 287).move(5, 5);
   });
