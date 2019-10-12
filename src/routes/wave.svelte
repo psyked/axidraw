@@ -2,6 +2,7 @@
   import { onMount, onDestroy } from "svelte";
   import { initialised } from "../stores";
   import * as SVG from "svg.js";
+  import generate from "./../generators/boxfill";
 
   const config = {
     width: 210,
@@ -12,9 +13,6 @@
 
   onMount(async () => {
     const dat = await import("dat.gui");
-    // const SVG = await import("svg.js");
-
-    console.log(SVG);
 
     gui = new dat.GUI({ autoPlace: false });
 
@@ -32,11 +30,11 @@
     var draw = SVG("svg16");
 
     // draw pink square
-    draw
-      .rect(200, 287)
-      .move(5, 5)
-      .fill("transparent")
-      .stroke("#f06"); // initialize SVG.js
+    // draw
+    //   .rect(200, 287)
+    generate(draw, 200, 287).move(5, 5);
+    // .fill("transparent")
+    // .stroke("#f06"); // initialize SVG.js
   });
 
   onDestroy(async () => {
