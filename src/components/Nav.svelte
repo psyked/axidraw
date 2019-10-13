@@ -53,11 +53,11 @@
     <li>
       <a class={segment === undefined ? 'selected' : ''} href=".">home</a>
     </li>
-    <li>
+    <!-- <li>
       <a class={segment === 'starmap' ? 'selected' : ''} href="starmap">
         starmap
       </a>
-    </li>
+    </li> -->
     <li>
       <a class={segment === 'wave' ? 'selected' : ''} href="wave">wave</a>
     </li>
