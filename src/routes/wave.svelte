@@ -7,7 +7,7 @@
 
   const config = {
     width: 210,
-    height: 270
+    height: 297
   };
 
   let gui;
@@ -24,7 +24,23 @@
     var obj = {
       generate: function() {
         draw.clear();
-        generate(draw, 200, 287).move(5, 5);
+        const border = 10;
+        const rows = 3;
+        const cols = 4;
+        for (var rowCount = 0; rowCount < rows; rowCount++) {
+          const itemWidth = (config.width - (rows + 1) * border) / rows;
+          const itemHeight = (config.height - (cols + 1) * border) / cols;
+          for (var colCount = 0; colCount < cols; colCount++) {
+            generate(draw, itemWidth, itemHeight).move(
+              itemWidth * rowCount + (rowCount + 1) * border,
+              itemHeight * colCount + (colCount + 1) * border
+            );
+          }
+        }
+        // generate(draw, 100, 187).move(5, 5);
+        // generate(draw, 200, 287).move(105, 105);
+        // generate(draw, 200, 287).move(5, 5);
+        // generate(draw, 200, 287).move(5, 5);
       },
       reset: function() {
         draw.clear();
@@ -49,7 +65,8 @@
 
     // initialize SVG.js
 
-    generate(draw, 200, 287).move(5, 5);
+    // generate(draw, 200, 287).move(5, 5);
+    obj.generate();
   });
 
   onDestroy(async () => {

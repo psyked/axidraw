@@ -8,7 +8,7 @@ export default (draw, width, height) => {
         .fill("transparent")
         .stroke("#60f");
 
-    const itemCount = 50;
+    const itemCount = 10;
 
     const xPinchMin = width * Math.random()
     const xPinchMax = width * Math.random()
@@ -31,7 +31,6 @@ export default (draw, width, height) => {
         group.path(`M ${xMin} ${y} C ${xPinchMin} ${yPinch}, ${xPinchMax} ${yPinch}, ${xMax} ${y}`)
             .fill("transparent")
             .stroke("#60f")
-        // .move((width - 10) * Math.random(), (height - 10) * Math.random())
     }
 
     return group
