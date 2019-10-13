@@ -3,6 +3,7 @@
   import { initialised } from "../stores";
   import * as SVG from "svg.js";
   import generate from "./../generators/boxfill";
+  import save from "./../components/utils/save-svg";
 
   const config = {
     width: 210,
@@ -22,12 +23,21 @@
 
     var obj = {
       generate: function() {
-        // console.log("clicked");
         generate(draw, 200, 287).move(5, 5);
+      },
+      reset: function() {
+        draw.clear();
+      },
+      save: function() {
+        save({ selector: "#svg16" });
       }
     };
 
     gui.add(obj, "generate");
+
+    gui.add(obj, "reset");
+
+    gui.add(obj, "save");
 
     // gui.add(config, "width").onChange(value => {
     //   console.log(value);
