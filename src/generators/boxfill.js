@@ -5,13 +5,19 @@ export default (draw, width, height) => {
     group
         .rect(width, height)
 
-    const itemCount = 10;
+    const itemCount = 6 + Math.round(6 * Math.random());
 
-    const xPinchMin = width * Math.random()
-    const xPinchMax = width * Math.random()
+    const xNumOne = width * Math.random()
+    const xNumTwo = width * Math.random()
+    const xasArray = [xNumOne, xNumTwo]
+    xasArray.sort();
+    const [xPinchMin, xPinchMax] = xasArray;
 
-    const yPinchMin = height * Math.random()
-    const yPinchMax = height * Math.random()
+    const yNumOne = height * Math.random()
+    const yNumTwo = height * Math.random()
+    const yasArray = [yNumOne, yNumTwo]
+    yasArray.sort();
+    const [yPinchMin, yPinchMax] = yasArray;
 
     for (var i = 0; i <= itemCount; i++) {
 
