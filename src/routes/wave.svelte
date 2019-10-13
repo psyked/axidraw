@@ -37,10 +37,6 @@
             );
           }
         }
-        // generate(draw, 100, 187).move(5, 5);
-        // generate(draw, 200, 287).move(105, 105);
-        // generate(draw, 200, 287).move(5, 5);
-        // generate(draw, 200, 287).move(5, 5);
       },
       reset: function() {
         draw.clear();
@@ -56,16 +52,6 @@
 
     gui.add(obj, "save");
 
-    // gui.add(config, "width").onChange(value => {
-    //   console.log(value);
-    // });
-    // gui.add(config, "height").onChange(value => {
-    //   console.log(value);
-    // });
-
-    // initialize SVG.js
-
-    // generate(draw, 200, 287).move(5, 5);
     obj.generate();
   });
 
@@ -100,6 +86,9 @@
     background: white;
     width: calc(((210 / 297) * 100vh) - (57px + 32px));
     height: calc(100vh - (57px + 32px));
+    fill: transparent;
+    stroke: black;
+    stroke-width: 0.2px;
   }
 
   #controls-container {
