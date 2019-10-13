@@ -23,6 +23,7 @@
 
     var obj = {
       generate: function() {
+        draw.clear();
         generate(draw, 200, 287).move(5, 5);
       },
       reset: function() {

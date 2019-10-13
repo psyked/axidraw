@@ -8,13 +8,30 @@ export default (draw, width, height) => {
         .fill("transparent")
         .stroke("#60f");
 
-    const itemCount = 250;
+    const itemCount = 50;
+
+    const xPinchMin = width * Math.random()
+    const xPinchMax = width * Math.random()
+    const yPinch = height * Math.random()
 
     for (var i = 0; i < itemCount; i++) {
-        group.rect(10, 10)
+        // group.rect(10, 10)
+        // .fill("transparent")
+        // .stroke("#60f")
+        // .move((width - 10) * Math.random(), (height - 10) * Math.random())
+
+        const xMin = 0;
+        const xMax = width;
+
+        const y = i * (height / itemCount);
+
+        // const yMin = 0;
+        // const yMax = height;
+
+        group.path(`M ${xMin} ${y} C ${xPinchMin} ${yPinch}, ${xPinchMax} ${yPinch}, ${xMax} ${y}`)
             .fill("transparent")
             .stroke("#60f")
-            .move((width - 10) * Math.random(), (height - 10) * Math.random())
+        // .move((width - 10) * Math.random(), (height - 10) * Math.random())
     }
 
     return group
