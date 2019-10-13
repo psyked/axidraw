@@ -22,27 +22,3 @@ jobs:
           npm run export --if-present
         env:
           CI: true
-
-  publish:
-    name: Publish to prod
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout the repository
-        uses: actions/checkout@v1
-      - name: Deploy on Zeit - Prod
-        uses: actions/zeit-now@master
-        env:
-          ZEIT_TOKEN: ${{ secrets.NOW_TOKEN }}
-        with:
-          args: --prod
-
-  deploy:
-    name: Deploy
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout the repository
-        uses: actions/checkout@v1
-      - name: Deploy on Zeit
-        uses: actions/zeit-now@master
-        env:
-          ZEIT_TOKEN: ${{ secrets.NOW_TOKEN }}
