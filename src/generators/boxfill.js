@@ -4,6 +4,8 @@ export default (draw, width, height) => {
 
     group
         .rect(width, height)
+        .fill('white')
+        .stroke('black')
 
     const itemCount = 6 + Math.round(6 * Math.random());
 
@@ -27,6 +29,8 @@ export default (draw, width, height) => {
         const y = i * (height / itemCount);
 
         group.path(`M ${xMin} ${y} C ${xPinchMin} ${yPinchMin}, ${xPinchMax} ${yPinchMax}, ${xMax} ${y}`)
+            .fill('transparent')
+            .stroke('black')
     }
 
     return group
